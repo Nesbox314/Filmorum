@@ -7,10 +7,17 @@
         angular.module("filmorum", []);
         angular.module("filmorum").controller("filmorumCtrl", function($scope) {
             $scope.app = "Filmorum";
+            $scope.films = [
+                {nome: "Exterminador do Futuro", descricao: "Bom"},
+                {nome: "Rambo", descricao: "Bom"},
+                {nome: "Falcão", descricao: "Bom"},
+                {nome: "Rocky", descricao: "Bom"}
+            ];
         });
     </script>
 </head>
 <body ng-controller="filmorumCtrl">
     <h1 ng-bind="app"></h1>
+    {{films}}
 </body>
 </html>
