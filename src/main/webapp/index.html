@@ -2,6 +2,7 @@
 <html ng-app="filmorum">
 <head>
     <title>Filmorum</title>
+    <meta charset="UTF-8">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
     <script>
         angular.module("filmorum", []);
@@ -18,6 +19,15 @@
 </head>
 <body ng-controller="filmorumCtrl">
     <h1 ng-bind="app"></h1>
-    {{films}}
+    <table>
+        <tr>
+            <th>Nome</th>
+            <th>Descrição</th>
+        </tr>
+        <tr ng-repeat="film in films">
+            <td>{{ film.nome }}</td>
+            <td>{{ film.descricao }}</td>
+        </tr>
+    </table>
 </body>
 </html>
