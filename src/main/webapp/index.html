@@ -2,15 +2,15 @@
 <html ng-app="filmorum">
 <head>
     <title>Filmorum</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
     <script>
         angular.module("filmorum", []);
-        angular.module("flmorum").controller("filmorumCtrl", function($scope) {
-
+        angular.module("filmorum").controller("filmorumCtrl", function($scope) {
+            $scope.app = "Filmorum";
         });
     </script>
 </head>
 <body ng-controller="filmorumCtrl">
-
+    <h1 ng-bind="app"></h1>
 </body>
 </html>
