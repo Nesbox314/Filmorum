@@ -6,7 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
     <script>
         angular.module("filmorum", []);
-        angular.module("filmorum").controller("filmorumCtrl", function($scope) {
+        angular.module("filmorum").controller("filmorumCtrl", function($scope, $http) {
             $scope.app = "Filmorum";
             $scope.films = [
                 {nome: "Exterminador do Futuro", descricao: "Bom"},
@@ -14,6 +14,12 @@
                 {nome: "Falcão", descricao: "Bom"},
                 {nome: "Rocky", descricao: "Bom"}
             ];
+
+            var carregarFilmes = function(){
+                $http.get("http://localhost:8080/filmorum/api/film/10");
+            };
+
+            carregarFilmes();
         });
     </script>
 </head>
