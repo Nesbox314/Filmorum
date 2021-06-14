@@ -1,5 +1,6 @@
 package com.github.Filmorum.controller;
 
+import com.github.Filmorum.EMUtils;
 import com.github.Filmorum.model.Film;
 
 import javax.ws.rs.*;
@@ -24,7 +25,11 @@ public class FilmController {
     @Path("/{id}")
     public Film get(@PathParam("id") Long id){
         Film film = new Film();
-        film.setId(id);
+        film.setName(id.toString());
+
+        EMUtils.getEntityManager().getTransaction().begin();
+        EMUtils.getEntityManager().persist(film);
+        EMUtils.getEntityManager().getTransaction().commit();
 
         return film;
     }
