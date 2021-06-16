@@ -1,27 +1,26 @@
 <!DOCTYPE html>
 <html ng-app="filmorum">
 <head>
-    <title>Filmorum</title>
     <meta charset="UTF-8">
+    <title>Filmorum</title>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
-    <script>
-        angular.module("filmorum", []);
-        angular.module("filmorum").controller("filmorumCtrl", function($scope, $http) {
-            $scope.app = "Filmorum";
-            $scope.film = {};
-
-            $scope.newFilm = function(film){
-                $http.post("http://localhost:8080/filmorum/api/film", film);
-            };
-        });
-    </script>
+    <script src="js/app.js"></script>
+    <script src="js/controllers/newFilmCtrl.js"></script>
 </head>
-<body ng-controller="filmorumCtrl">
+<body ng-controller="newFilmCtrl">
     <h1 ng-bind="app"></h1>
     <form>
-        <input type="text" ng-model="film.name">
+        <div>
+            <input type="text" ng-model="film.name">
+        </div>
+        <div>
+            <input type="text" ng-model="film.description">
+        </div>
+        <div>
+            <input type="number" ng-model="film.avaliation">
+        </div>
         <button ng-click="newFilm(film)">SUBMIT</button>
     </form>
-    <h1>You entered: {{film.name}}</h1>
 </body>
 </html>
