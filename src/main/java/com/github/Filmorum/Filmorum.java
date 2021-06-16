@@ -9,6 +9,5 @@ import javax.ws.rs.core.Application;
 public class Filmorum extends ResourceConfig {
     public Filmorum(){
         packages("com.github.Filmorum");
-        EMUtils emUtils = new EMUtils();
     }
 }

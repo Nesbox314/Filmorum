@@ -8,15 +8,12 @@
         angular.module("filmorum", []);
         angular.module("filmorum").controller("filmorumCtrl", function($scope, $http) {
             $scope.app = "Filmorum";
-            $scope.films = [
-                {nome: "Exterminador do Futuro", descricao: "Bom"},
-                {nome: "Rambo", descricao: "Bom"},
-                {nome: "Falcão", descricao: "Bom"},
-                {nome: "Rocky", descricao: "Bom"}
-            ];
+            $scope.film = {
+                name: "Exterminador do Futuro", description: "Bom"
+            };
 
             var carregarFilmes = function(){
-                $http.get("http://localhost:8080/filmorum/api/film/10");
+                $http.post("http://localhost:8080/filmorum/api/film", $scope.film);
             };
 
             carregarFilmes();
@@ -35,5 +32,9 @@
             <td>{{ film.descricao }}</td>
         </tr>
     </table>
+    <form>
+        <input type="text" ng-model="name">
+    </form>
+    <h1>You entered: {{name}}</h1>
 </body>
 </html>

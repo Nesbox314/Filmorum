@@ -3,6 +3,7 @@ package com.github.Filmorum.controller;
 import com.github.Filmorum.EMUtils;
 import com.github.Filmorum.model.Film;
 
+import javax.persistence.EntityManager;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -10,6 +11,8 @@ import java.util.List;
 
 @Path("/film")
 public class FilmController {
+
+    EntityManager entityManager = EMUtils.getEntityManager();
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -25,11 +28,6 @@ public class FilmController {
     @Path("/{id}")
     public Film get(@PathParam("id") Long id){
         Film film = new Film();
-        film.setName(id.toString());
-
-        EMUtils.getEntityManager().getTransaction().begin();
-        EMUtils.getEntityManager().persist(film);
-        EMUtils.getEntityManager().getTransaction().commit();
 
         return film;
     }
@@ -38,6 +36,9 @@ public class FilmController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/")
     public Response create(Film film){
+        entityManager.getTransaction().begin();
+        entityManager.persist(film);
+        entityManager.getTransaction().commit();
         return Response.status(Response.Status.OK).build();
     }
 
