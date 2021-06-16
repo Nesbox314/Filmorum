@@ -8,33 +8,20 @@
         angular.module("filmorum", []);
         angular.module("filmorum").controller("filmorumCtrl", function($scope, $http) {
             $scope.app = "Filmorum";
-            $scope.film = {
-                name: "Exterminador do Futuro", description: "Bom"
-            };
+            $scope.film = {};
 
-            var carregarFilmes = function(){
-                $http.post("http://localhost:8080/filmorum/api/film", $scope.film);
+            $scope.newFilm = function(film){
+                $http.post("http://localhost:8080/filmorum/api/film", film);
             };
-
-            carregarFilmes();
         });
     </script>
 </head>
 <body ng-controller="filmorumCtrl">
     <h1 ng-bind="app"></h1>
-    <table>
-        <tr>
-            <th>Nome</th>
-            <th>Descrição</th>
-        </tr>
-        <tr ng-repeat="film in films">
-            <td>{{ film.nome }}</td>
-            <td>{{ film.descricao }}</td>
-        </tr>
-    </table>
     <form>
-        <input type="text" ng-model="name">
+        <input type="text" ng-model="film.name">
+        <button ng-click="newFilm(film)">SUBMIT</button>
     </form>
-    <h1>You entered: {{name}}</h1>
+    <h1>You entered: {{film.name}}</h1>
 </body>
 </html>
