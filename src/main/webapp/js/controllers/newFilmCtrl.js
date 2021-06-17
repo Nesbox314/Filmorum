@@ -1,5 +1,4 @@
 angular.module("filmorum").controller("newFilmCtrl", function($scope, $http) {
-    $scope.app = "Filmorum";
     $scope.film = {};
 
     $scope.newFilm = function(film){
