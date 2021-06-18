@@ -5,6 +5,17 @@
     <title>Title</title>
 </head>
 <body>
-
+    <form>
+        <div>
+            <input type="text" ng-model="film.name">
+        </div>
+        <div>
+            <input type="text" ng-model="film.description">
+        </div>
+        <div>
+            <input type="number" ng-model="film.avaliation">
+        </div>
+        <button ng-click="newFilm(film)">SUBMIT</button>
+    </form>
 </body>
 </html>

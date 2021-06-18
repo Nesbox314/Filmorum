@@ -3,24 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Filmorum</title>
-    <link rel="stylesheet" type="text/css" href="css/index.css">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-route.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/config/routeConfig.js"></script>
     <script src="js/controllers/newFilmCtrl.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
-<body ng-controller="newFilmCtrl">
-    <div ng-include="'view/header.html'"></div>
-    <form>
-        <div>
-            <input type="text" ng-model="film.name">
-        </div>
-        <div>
-            <input type="text" ng-model="film.description">
-        </div>
-        <div>
-            <input type="number" ng-model="film.avaliation">
-        </div>
-        <button ng-click="newFilm(film)">SUBMIT</button>
-    </form>
+<body>
+    <div id="principal">
+        <span id="title">filmorum</span>
+        <span class="usercommands">
+            <button><a href="#!/new">new film</a></button>
+        </span>
+        <span class="usercommands">
+            <button><a href="view/login.html">login</a></button>
+        </span>
+        <span class="usercommands">
+            <button>signup</button>
+        </span>
+    </div>
+    <div ng-view></div>
 </body>
 </html>
