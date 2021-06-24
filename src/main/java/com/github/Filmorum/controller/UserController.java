@@ -1,0 +1,58 @@
+package com.github.Filmorum.controller;
+
+import com.github.Filmorum.EMUtils;
+import com.github.Filmorum.model.Film;
+import com.github.Filmorum.model.User;
+
+import javax.persistence.EntityManager;
+import javax.ws.rs.*;
+import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.Response;
+import java.util.List;
+
+@Path("/user")
+public class UserController {
+
+    EntityManager entityManager = EMUtils.getEntityManager();
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/")
+    public List<User> list(){
+        List<User> users = null;
+
+        return users;
+    }
+
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public User get(@PathParam("id") Long id){
+        User user = new User();
+
+        return user;
+    }
+
+    @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/")
+    public Response create(User user){
+        entityManager.getTransaction().begin();
+        entityManager.persist(user);
+        entityManager.getTransaction().commit();
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @PUT
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Path("/")
+    public Response update(User user){
+        return Response.status(Response.Status.OK).build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public Response delete(@PathParam("id") Long id){
+        return Response.status(Response.Status.OK).build();
+    }
+}
