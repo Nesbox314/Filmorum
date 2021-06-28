@@ -1,11 +1,9 @@
 package com.github.Filmorum.controller;
 
 import com.github.Filmorum.EMUtils;
-import com.github.Filmorum.model.Film;
 import com.github.Filmorum.model.User;
 
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -60,9 +58,15 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/login/{nickname}/{password}")
-    public void login(@PathParam("nickname") String nickname, @PathParam("password") String password){
-        List<User> teste = entityManager.createNativeQuery
+    public Response login(@PathParam("nickname") String nickname, @PathParam("password") String password){
+        List<User> listUsers = entityManager.createNativeQuery
                 ("select * from User where " +
                         "nickname = '" + nickname + "'and password = '" + password + "'", User.class).getResultList();
+
+        if(listUsers.size() > 0) {
+            return Response.status(Response.Status.OK).build();
+        } else {
+            return Response.status(Response.Status.NOT_FOUND).build();
+        }
     }
 }

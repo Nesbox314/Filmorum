@@ -12,15 +12,16 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-    <div id="principal">
+    <div ng-controller="userCtrl" id="principal" ng-init="getTokenDecrypted()">
         <span id="title">filmorum</span>
+        <span class="usercommands">Welcome, {{nickname}}</span>
         <span class="usercommands">
             <button><a href="#!/new">new film</a></button>
         </span>
-        <span class="usercommands">
+        <span ng-if="!logged" class="usercommands">
             <button><a href="#!/login">login</a></button>
         </span>
-        <span class="usercommands">
+        <span ng-if="!logged" class="usercommands">
             <button><a href="#!/signup">signup</a></button>
         </span>
     </div>
