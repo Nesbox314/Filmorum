@@ -1,4 +1,8 @@
 angular.module("filmorum").config(function($routeProvider){
+    $routeProvider.when("/", {
+        templateUrl: "view/homepage.html",
+        controller: "homepageCtrl"
+    }),
     $routeProvider.when("/new", {
         templateUrl: "view/newFilm.html",
         controller: "newFilmCtrl"

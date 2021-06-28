@@ -1,6 +1,6 @@
 angular.module("filmorum").controller("userCtrl", function($scope, $http, $window) {
     $scope.film = {};
-    $scope.nickname = "guest";
+    $scope.nicknameHeader = "guest";
     $scope.logged = false;
 
     $scope.newUser = function(user){
@@ -21,7 +21,7 @@ angular.module("filmorum").controller("userCtrl", function($scope, $http, $windo
         let token = localStorage.getItem("token");
         if(token){
             let decryptedToken = atob(token);
-            $scope.nickname = decryptedToken.slice(0, decryptedToken.indexOf("|"));
+            $scope.nicknameHeader = decryptedToken.slice(0, decryptedToken.indexOf("|"));
             $scope.logged = true;
         }
     }

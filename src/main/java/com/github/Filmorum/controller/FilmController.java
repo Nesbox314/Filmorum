@@ -2,6 +2,7 @@ package com.github.Filmorum.controller;
 
 import com.github.Filmorum.EMUtils;
 import com.github.Filmorum.model.Film;
+import com.github.Filmorum.model.User;
 
 import javax.persistence.EntityManager;
 import javax.ws.rs.*;
@@ -18,9 +19,9 @@ public class FilmController {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/")
     public List<Film> list(){
-        List<Film> films = null;
+        List<Film> listFilms = entityManager.createNativeQuery("select * from Film", Film.class).getResultList();
 
-        return films;
+        return listFilms;
     }
 
     @GET

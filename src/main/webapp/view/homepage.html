@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/homepage.css">
+</head>
+<body>
+    <table style="width:100%">
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Avaliation</th>
+            <th>Reviews</th>
+        </tr>
+        <tr align="center" ng-repeat="film in films">
+            <td>{{film.name}}</td>
+            <td>{{film.description}}</td>
+            <td>{{film.avaliation}}</td>
+        </tr>
+    </table>
+</body>
+</html>
