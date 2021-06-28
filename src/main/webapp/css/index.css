@@ -8,7 +8,7 @@ body {
 #title {
     margin-left: 0.5vw;
     font-size: 4vh;
-    font-family: Arial;
+    font-family: Consolas;
 }
 .usercommands {
     float: right;

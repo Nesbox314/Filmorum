@@ -15,7 +15,7 @@
     <div ng-controller="userCtrl" id="principal" ng-init="getTokenDecrypted()">
         <span id="title">filmorum</span>
         <span class="usercommands">Welcome, {{nickname}}</span>
-        <span class="usercommands">
+        <span ng-if="logged" class="usercommands">
             <button><a href="#!/new">new film</a></button>
         </span>
         <span ng-if="!logged" class="usercommands">
