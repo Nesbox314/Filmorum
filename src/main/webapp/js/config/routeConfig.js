@@ -6,5 +6,9 @@ angular.module("filmorum").config(function($routeProvider){
     $routeProvider.when("/signup", {
         templateUrl: "view/signup.html",
         controller: "userCtrl"
+    }),
+    $routeProvider.when("/login", {
+        templateUrl: "view/login.html",
+        controller: "userCtrl"
     })
 });

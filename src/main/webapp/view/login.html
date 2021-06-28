@@ -5,6 +5,14 @@
     <title>Title</title>
 </head>
 <body>
-
+    <form>
+        <div>
+            <input type="text" ng-model="nickname">
+        </div>
+        <div>
+            <input type="text" ng-model="password">
+        </div>
+        <button ng-click="login(nickname, password)">SUBMIT</button>
+    </form>
 </body>
 </html>

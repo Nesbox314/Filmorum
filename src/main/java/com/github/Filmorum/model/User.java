@@ -1,5 +1,8 @@
 package com.github.Filmorum.model;
 
+import org.hibernate.annotations.FilterDef;
+import org.hibernate.annotations.ParamDef;
+
 import javax.persistence.*;
 import java.util.Objects;
 
@@ -13,6 +16,7 @@ public class User {
     private String nickname;
     private String email;
     private String name;
+    private String password;
     private int age;
 
     public Long getId() {
@@ -45,6 +49,14 @@ public class User {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 
     public int getAge() {
