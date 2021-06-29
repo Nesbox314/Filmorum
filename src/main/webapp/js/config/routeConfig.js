@@ -18,5 +18,9 @@ angular.module("filmorum").config(function($routeProvider){
     $routeProvider.when("/details", {
         templateUrl: "view/details.html",
         controller: "detailsCtrl"
+    }),
+    $routeProvider.when("/details/:id", {
+        templateUrl: "view/details.html",
+        controller: "detailsCtrl"
     })
 });

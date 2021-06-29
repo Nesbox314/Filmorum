@@ -3,16 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Filmorum</title>
+    <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
     <form>
-        <div>
-            <input type="text" ng-model="nickname">
+        <div id="principaldiv">
+            <div>
+                <h2>login</h2>
+            </div>
+            <div>
+                <input type="text" placeholder="nickname" ng-model="nickname">
+            </div>
+            <div>
+                <input type="text" placeholder="password" ng-model="password">
+            </div>
+            <div id="divbutton">
+                <button ng-click="login(nickname, password)">SUBMIT</button>
+            </div>
         </div>
-        <div>
-            <input type="text" ng-model="password">
-        </div>
-        <button ng-click="login(nickname, password)">SUBMIT</button>
     </form>
 </body>
 </html>

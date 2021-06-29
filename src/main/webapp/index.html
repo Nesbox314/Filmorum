@@ -10,6 +10,7 @@
     <script src="js/controllers/newFilmCtrl.js"></script>
     <script src="js/controllers/userCtrl.js"></script>
     <script src="js/controllers/homepageCtrl.js"></script>
+    <script src="js/controllers/detailsCtrl.js"></script>
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
@@ -17,7 +18,7 @@
         <span id="title">filmorum</span>
         <span class="usercommands">Welcome, {{nicknameHeader}}</span>
         <span ng-if="logged" class="usercommands">
-            <button><a href="#!/new">new film</a></button>
+            <button><a href="#!/new">new movie</a></button>
         </span>
         <span ng-if="!logged" class="usercommands">
             <button><a href="#!/login">login</a></button>
