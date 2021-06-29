@@ -4,8 +4,4 @@ angular.module("filmorum").controller("homepageCtrl", function($scope, $http) {
     $http.get("http://localhost:8080/filmorum/api/film").then(function (response){
         $scope.films = response.data;
     });
-
-    $scope.console = function (){
-        console.log("teste");
-    }
 });

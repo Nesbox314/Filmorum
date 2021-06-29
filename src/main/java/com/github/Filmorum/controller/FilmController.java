@@ -28,7 +28,9 @@ public class FilmController {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     public Film get(@PathParam("id") Long id){
-        Film film = new Film();
+        Film film;
+
+        film = entityManager.find(Film.class, id);
 
         return film;
     }

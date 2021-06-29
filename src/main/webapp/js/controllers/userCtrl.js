@@ -3,8 +3,19 @@ angular.module("filmorum").controller("userCtrl", function($scope, $http, $windo
     $scope.nicknameHeader = "guest";
     $scope.logged = false;
 
+    let token = localStorage.getItem("token");
+    if(token){
+        let decryptedToken = atob(token);
+        $scope.nicknameHeader = decryptedToken.slice(0, decryptedToken.indexOf("|"));
+        $scope.logged = true;
+    }
+
     $scope.newUser = function(user){
-        $http.post("http://localhost:8080/filmorum/api/user", user);
+        $http.post("http://localhost:8080/filmorum/api/user", user).then(function (response){
+            if(response.status == 200){
+                $window.location.href = 'index.html';
+            }
+        });
     };
 
     $scope.login = function(nickname, password){
@@ -17,12 +28,9 @@ angular.module("filmorum").controller("userCtrl", function($scope, $http, $windo
            });
     };
 
-    $scope.getTokenDecrypted = function(){
-        let token = localStorage.getItem("token");
-        if(token){
-            let decryptedToken = atob(token);
-            $scope.nicknameHeader = decryptedToken.slice(0, decryptedToken.indexOf("|"));
-            $scope.logged = true;
-        }
+    $scope.logout = function(){
+        localStorage.removeItem("token");
+        $scope.nicknameHeader = "guest";
+        $scope.logged = false;
     }
 });

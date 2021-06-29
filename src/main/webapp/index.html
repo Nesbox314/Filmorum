@@ -14,7 +14,7 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
 </head>
 <body>
-    <div ng-controller="userCtrl" id="principal" ng-init="getTokenDecrypted()">
+    <div ng-controller="userCtrl" id="principal">
         <span id="title">filmorum</span>
         <span class="usercommands">Welcome, {{nicknameHeader}}</span>
         <span ng-if="logged" class="usercommands">
@@ -25,6 +25,9 @@
         </span>
         <span ng-if="!logged" class="usercommands">
             <button><a href="#!/signup">signup</a></button>
+        </span>
+        <span ng-if="logged" class="usercommands">
+            <button ng-click="logout()"><a>logout</a></button>
         </span>
     </div>
     <div ng-view></div>
