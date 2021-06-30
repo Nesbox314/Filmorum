@@ -4,6 +4,12 @@ angular.module("filmorum").controller("detailsCtrl", function($scope, $http, $ro
     $scope.numberOfReviews = 0;
     $scope.avgOfReviews = 0;
     $scope.filmId = $routeParams.id;
+    $scope.logged = false;
+
+    let token = localStorage.getItem("token");
+    if(token){
+        $scope.logged = true;
+    }
 
     $http.get("http://localhost:8080/filmorum/api/film/" + $scope.filmId).then(function (response){
         $scope.film = response.data;
