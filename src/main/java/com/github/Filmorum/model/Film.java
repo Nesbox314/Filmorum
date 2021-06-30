@@ -17,6 +17,14 @@ public class Film {
     @OneToMany(mappedBy = "movie", targetEntity = Analysis.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Analysis> analysis;
 
+    public Film(){
+
+    }
+
+    public Film(String id) {
+        this.id = Long.parseLong(id);
+    }
+
     public Long getId() {
         return id;
     }

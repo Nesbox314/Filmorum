@@ -3,8 +3,24 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="css/newReview.css">
 </head>
 <body>
-
+    <form>
+        <div id="principaldiv">
+            <div>
+                <h2>new review</h2>
+            </div>
+            <div>
+                <input type="textarea" placeholder="comment" ng-model="review.comment">
+            </div>
+            <div>
+                <input type="text" placeholder="avaliation" ng-model="review.avaliation">
+            </div>
+            <div id="divbutton">
+                <button ng-click="newReview(review)">SUBMIT</button>
+            </div>
+        </div>
+    </form>
 </body>
 </html>

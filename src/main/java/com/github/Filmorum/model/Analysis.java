@@ -13,7 +13,6 @@ public class Analysis {
     private Long userId;
     private String comment;
     private int avaliation;
-
     @ManyToOne
     private Film movie;
 
@@ -47,6 +46,14 @@ public class Analysis {
 
     public void setAvaliation(int avaliation) {
         this.avaliation = avaliation;
+    }
+
+    public Film getMovie() {
+        return movie;
+    }
+
+    public void setMovie(Film movie) {
+        this.movie = movie;
     }
 
     @Override

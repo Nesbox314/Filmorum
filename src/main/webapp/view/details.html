@@ -9,7 +9,7 @@
     <div id="principaldiv">
         <span id="nome">{{film.name}}</span>
         <span id="avaliation">avaliacao geral</span>
-        <span id="numberReviews">numero <input type="button" value="new review"/></span>
+        <span id="numberReviews">numero <button><a href="#!/newReview/{{filmId}}">new review</a></button></span>
     </div>
     <table style="width:100%">
         <tr>
@@ -17,10 +17,10 @@
             <th>analysis</th>
             <th>avaliation</th>
         </tr>
-        <tr align="center">
-            <td></td>
-            <td></td>
-            <td></td>
+        <tr align="center" ng-repeat="review in reviews">
+            <td>{{review.userId}}</td>
+            <td>{{review.comment}}</td>
+            <td>{{review.avaliation}}</td>
         </tr>
     </table>
 </body>
