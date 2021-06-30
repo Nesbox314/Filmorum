@@ -1,8 +1,5 @@
 package com.github.Filmorum.model;
 
-import org.hibernate.annotations.FilterDef;
-import org.hibernate.annotations.ParamDef;
-
 import javax.persistence.*;
 import java.util.Objects;
 

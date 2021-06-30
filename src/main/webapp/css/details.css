@@ -1,0 +1,17 @@
+#principaldiv {
+    border: black 2px solid;
+}
+
+#nome {
+    font-size: 3vw;
+    background: inherit;
+}
+
+#avaliation {
+    font-size: 2vw;
+    background: inherit;
+}
+
+#numberReviews {
+    margin-left: 55vw;
+}

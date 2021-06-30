@@ -6,10 +6,16 @@ import javax.persistence.Persistence;
 
 public class EMUtils {
 
-    private static EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("filmorum");
-    private static EntityManager entityManager = entityManagerFactory.createEntityManager();
+    private static EntityManagerFactory entityManagerFactory;
+    private static EntityManager entityManager;
+
+    public static void createEntityManager(){
+        entityManagerFactory = Persistence.createEntityManagerFactory("filmorum");
+        entityManager = entityManagerFactory.createEntityManager();
+    }
 
     public static EntityManager getEntityManager() {
         return entityManager;
     }
+
 }

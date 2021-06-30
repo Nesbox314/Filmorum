@@ -1,6 +1,7 @@
 package com.github.Filmorum.model;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -12,7 +13,9 @@ public class Film {
     private Long id;
     private String name;
     private String description;
-    private String avaliation;
+
+    @OneToMany(mappedBy = "movie", targetEntity = Analysis.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private List<Analysis> analysis;
 
     public Long getId() {
         return id;
@@ -38,12 +41,12 @@ public class Film {
         this.description = description;
     }
 
-    public String getAvaliation() {
-        return avaliation;
+    public List<Analysis> getAnalysis() {
+        return analysis;
     }
 
-    public void setAvaliation(String avaliation) {
-        this.avaliation = avaliation;
+    public void setAnalysis(List<Analysis> analysis) {
+        this.analysis = analysis;
     }
 
     @Override
