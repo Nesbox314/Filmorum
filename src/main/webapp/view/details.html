@@ -8,7 +8,7 @@
 <body>
     <div id="principaldiv">
         <span id="nome">{{film.name}}</span>
-        <span id="avaliation">avaliacao geral</span>
+        <span id="avaliation">{{avgOfReviews/numberOfReviews}}</span>
         <span id="numberReviews">reviews: {{numberOfReviews}} <button><a href="#!/newReview/{{filmId}}">new review</a></button></span>
     </div>
     <table style="width:100%">
