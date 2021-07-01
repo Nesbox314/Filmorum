@@ -1,4 +1,5 @@
 # Filmorum
 
-A simple movie forum perfect for review bombings.
-I'ts simple, based only in espectators opinion.
+A simple movie forum, themed on old sites, where you can register movies and rate them.
+
+It's perfect for review bombings.
