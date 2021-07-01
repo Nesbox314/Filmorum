@@ -18,7 +18,10 @@ angular.module("filmorum").controller("detailsCtrl", function($scope, $http, $ro
     $http.get("http://localhost:8080/filmorum/api/analysis/film/" + $scope.filmId).then(function (response){
         $scope.reviews = response.data;
         $scope.numberOfReviews = response.data.length;
-        $scope.reviews.forEach(avg);
+        if($scope.numberOfReviews > 0){
+            $scope.reviews.forEach(avg);
+            $scope.avgOfReviews = $scope.avgOfReviews/$scope.numberOfReviews;
+        }
     });
 
     function avg(review){

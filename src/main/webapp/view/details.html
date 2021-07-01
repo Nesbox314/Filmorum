@@ -8,7 +8,7 @@
 <body>
     <div id="principaldiv">
         <span id="nome">{{film.name}}</span>
-        <span id="avaliation">{{avgOfReviews/numberOfReviews}}</span>
+        <span id="avaliation">{{avgOfReviews}}</span>
         <span id="numberReviews">reviews: {{numberOfReviews}} <button ng-if="logged"><a href="#!/newReview/{{filmId}}">new review</a></button></span>
     </div>
     <table style="width:100%">
