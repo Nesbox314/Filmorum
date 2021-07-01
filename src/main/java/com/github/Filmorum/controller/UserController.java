@@ -60,7 +60,7 @@ public class UserController {
     @Path("/login/{nickname}/{password}")
     public User login(@PathParam("nickname") String nickname, @PathParam("password") String password){
         List<User> listUsers = entityManager.createNativeQuery
-                ("select * from User where " +
+                ("select * from users where " +
                         "nickname = '" + nickname + "'and password = '" + password + "'", User.class).getResultList();
 
         if(listUsers.size() != 0){
@@ -68,6 +68,5 @@ public class UserController {
         } else {
             return null;
         }
-
     }
 }
