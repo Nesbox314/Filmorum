@@ -3,6 +3,7 @@ package com.github.Filmorum.controller;
 import com.github.Filmorum.EMUtils;
 import com.github.Filmorum.model.Analysis;
 import com.github.Filmorum.model.Film;
+import com.github.Filmorum.model.User;
 
 import javax.persistence.EntityManager;
 import javax.ws.rs.*;
@@ -31,6 +32,10 @@ public class AnalysisController {
     public List<Analysis> listByFilms(@PathParam("id") Long id){
         List<Analysis> listAnalysis = entityManager
                 .createNativeQuery("select * from analysis where movie_id = " + id, Analysis.class).getResultList();
+
+        for(Analysis analysis : listAnalysis){
+            analysis.setUsers(entityManager.find(User.class, analysis.getUsers().getId()));
+        }
 
         return listAnalysis;
     }

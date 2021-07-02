@@ -10,7 +10,10 @@ public class Analysis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Long userId;
+
+    @OneToOne
+    @JoinColumn(name = "userId")
+    private User users;
     private String comment;
     private int avaliation;
     @ManyToOne
@@ -24,12 +27,12 @@ public class Analysis {
         this.id = id;
     }
 
-    public Long getUserId() {
-        return userId;
+    public User getUsers() {
+        return users;
     }
 
-    public void setUserId(Long userId) {
-        this.userId = userId;
+    public void setUsers(User user) {
+        this.users = user;
     }
 
     public String getComment() {

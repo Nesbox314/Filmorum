@@ -15,6 +15,16 @@ public class User {
     private String name;
     private String password;
     private int age;
+    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private Analysis analysis;
+
+    public User(){
+
+    }
+
+    public User(Long id){
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -62,6 +72,14 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
+    }
+
+    public Analysis getAnalysis() {
+        return analysis;
+    }
+
+    public void setAnalysis(Analysis analysis) {
+        this.analysis = analysis;
     }
 
     @Override

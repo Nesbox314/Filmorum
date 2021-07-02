@@ -3,7 +3,7 @@ angular.module("filmorum").controller("reviewCtrl", function($scope, $http, $win
 
     let token = localStorage.getItem("token");
     if(token){
-        $scope.review.userId = JSON.parse(atob(token)).id;
+        $scope.review.users = JSON.parse(atob(token)).id;
     }
     $scope.review.movie = $routeParams.id;
 
