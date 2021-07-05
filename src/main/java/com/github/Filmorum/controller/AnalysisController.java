@@ -9,6 +9,7 @@ import javax.persistence.EntityManager;
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import java.text.DecimalFormat;
 import java.util.List;
 
 @Path("/analysis")
@@ -64,10 +65,12 @@ public class AnalysisController {
             return ana.getAvaliation();
         }
 
+        listAnalysis.add(ana);
         for(Analysis analysis : listAnalysis){
             soma = soma + analysis.getAvaliation();
         }
 
-        return soma/listAnalysis.size();
+        DecimalFormat df = new DecimalFormat("#,0");
+        return Double.parseDouble(df.format(soma/listAnalysis.size()));
     }
 }

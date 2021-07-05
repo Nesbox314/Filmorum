@@ -22,7 +22,6 @@
             <property name="hibernate.hbm2ddl.index.auto" value="true"/>
             <property name="hibernate.show_sql" value="false"/>
             <property name="hibernate.format_sql" value="false"/>
-            <property name="hibernate.validator.apply_to_ddl" value="false"/>
 
         </properties>
     </persistence-unit>
