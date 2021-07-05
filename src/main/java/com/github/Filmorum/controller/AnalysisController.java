@@ -45,8 +45,28 @@ public class AnalysisController {
     @Path("/")
     public Response create(Analysis analysis){
         entityManager.getTransaction().begin();
+        Film film = entityManager.find(Film.class, analysis.getMovie().getId());
+        film.setReviews(film.getReviews() + 1);
+        film.setAvaliation(atualizarReview(analysis));
+        analysis.setMovie(film);
         entityManager.persist(analysis);
         entityManager.getTransaction().commit();
         return Response.status(Response.Status.OK).build();
+    }
+
+    public double atualizarReview(Analysis ana){
+        List<Analysis> listAnalysis = entityManager
+                .createNativeQuery("select * from analysis", Analysis.class).getResultList();
+        double soma = 0;
+
+        if(listAnalysis.size() == 0){
+            return ana.getAvaliation();
+        }
+
+        for(Analysis analysis : listAnalysis){
+            soma = soma + analysis.getAvaliation();
+        }
+
+        return soma/listAnalysis.size();
     }
 }

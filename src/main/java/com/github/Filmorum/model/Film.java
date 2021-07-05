@@ -13,6 +13,8 @@ public class Film {
     private Long id;
     private String name;
     private String description;
+    private double avaliation;
+    private int reviews;
 
     public Film(){
 
@@ -44,6 +46,22 @@ public class Film {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public double getAvaliation() {
+        return avaliation;
+    }
+
+    public void setAvaliation(double avaliation) {
+        this.avaliation = avaliation;
+    }
+
+    public int getReviews() {
+        return reviews;
+    }
+
+    public void setReviews(int reviews) {
+        this.reviews = reviews;
     }
 
     @Override

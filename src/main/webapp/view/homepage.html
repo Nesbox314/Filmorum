@@ -10,10 +10,14 @@
         <tr>
             <th class="font">name</th>
             <th class="font">description</th>
+            <th class="font">avaliation</th>
+            <th class="font">number of reviews</th>
         </tr>
         <tr align="center" ng-repeat="film in films">
             <td class="font"><a href="#!/details/{{film.id}}">{{film.name}}</a></td>
             <td class="font">{{film.description}}</td>
+            <td class="font">{{film.avaliation}}</td>
+            <td class="font">{{film.reviews}}</td>
         </tr>
     </table>
 </body>

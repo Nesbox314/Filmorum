@@ -8,8 +8,8 @@
 <body>
     <div id="principaldiv">
         <span id="nome" class="font">{{film.name}}</span>
-        <span id="avaliation" class="font">{{avgOfReviews}}</span>
-        <span id="numberReviews" class="font">reviews: {{numberOfReviews}} <button ng-if="logged"><a href="#!/newReview/{{filmId}}">new review</a></button></span>
+        <span id="avaliation" class="font">{{film.avaliation}}</span>
+        <span id="numberReviews" class="font">reviews: {{film.reviews}} <button ng-if="logged"><a href="#!/newReview/{{filmId}}">new review</a></button></span>
     </div>
     <table style="width:100%">
         <tr>

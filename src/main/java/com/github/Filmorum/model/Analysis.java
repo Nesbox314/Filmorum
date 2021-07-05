@@ -11,15 +11,21 @@ public class Analysis {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String comment;
-    private int avaliation;
+    private double avaliation;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY /*, cascade = CascadeType.ALL*/)
     @JoinColumn(name="user_id")
     private User users;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER /*, cascade = CascadeType.ALL*/)
     @JoinColumn(name="movie_id")
     private Film movie;
+
+    public Analysis(){}
+
+    public Analysis(Long id){
+        this.id = id;
+    }
 
     public Long getId() {
         return id;
@@ -45,11 +51,11 @@ public class Analysis {
         this.comment = comment;
     }
 
-    public int getAvaliation() {
+    public double getAvaliation() {
         return avaliation;
     }
 
-    public void setAvaliation(int avaliation) {
+    public void setAvaliation(double avaliation) {
         this.avaliation = avaliation;
     }
 
