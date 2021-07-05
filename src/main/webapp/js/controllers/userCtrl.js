@@ -1,9 +1,9 @@
-angular.module("filmorum").controller("userCtrl", function($scope, $http, $window) {
+angular.module("filmorum").controller("userCtrl", function($scope, $http, $window, $cookies) {
     $scope.film = {};
     $scope.nicknameHeader = "guest";
     $scope.logged = false;
 
-    let token = localStorage.getItem("token");
+    let token = sessionStorage.getItem("token");
     if(token){
         let decryptedToken = JSON.parse(atob(token));
         $scope.nicknameHeader = decryptedToken.nickname;
@@ -22,14 +22,14 @@ angular.module("filmorum").controller("userCtrl", function($scope, $http, $windo
        $http.get("http://localhost:8080/filmorum/api/user/login/" + nickname + "/" + password + "/")
            .then(function (response){
                if(response.status == 200 && response.data != "") {
-                   localStorage.setItem("token", btoa(JSON.stringify(response.data)));
+                   sessionStorage.setItem("token", btoa(JSON.stringify(response.data)));
                    $window.location.href = 'index.html';
                }
            });
     };
 
     $scope.logout = function(){
-        localStorage.removeItem("token");
+        sessionStorage.removeItem("token");
         $scope.nicknameHeader = "guest";
         $scope.logged = false;
     }

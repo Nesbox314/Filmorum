@@ -6,7 +6,7 @@ angular.module("filmorum").controller("detailsCtrl", function($scope, $http, $ro
     $scope.filmId = $routeParams.id;
     $scope.logged = false;
 
-    let token = localStorage.getItem("token");
+    let token = sessionStorage.getItem("token");
     if(token){
         $scope.logged = true;
     }

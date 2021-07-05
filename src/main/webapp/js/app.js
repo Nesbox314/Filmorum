@@ -1,1 +1,1 @@
-angular.module("filmorum", ["ngRoute"]);
+angular.module("filmorum", ["ngRoute", "ngCookies"]);
