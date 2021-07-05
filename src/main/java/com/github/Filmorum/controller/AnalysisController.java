@@ -56,7 +56,8 @@ public class AnalysisController {
 
     public double atualizarReview(Analysis ana){
         List<Analysis> listAnalysis = entityManager
-                .createNativeQuery("select * from analysis", Analysis.class).getResultList();
+                .createNativeQuery("select * from analysis where movie_id = " +
+                        ana.getMovie().getId(), Analysis.class).getResultList();
         double soma = 0;
 
         if(listAnalysis.size() == 0){
