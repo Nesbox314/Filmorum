@@ -7,20 +7,20 @@
 </head>
 <body>
     <div id="principaldiv">
-        <span id="nome">{{film.name}}</span>
-        <span id="avaliation">{{avgOfReviews}}</span>
-        <span id="numberReviews">reviews: {{numberOfReviews}} <button ng-if="logged"><a href="#!/newReview/{{filmId}}">new review</a></button></span>
+        <span id="nome" class="font">{{film.name}}</span>
+        <span id="avaliation" class="font">{{avgOfReviews}}</span>
+        <span id="numberReviews" class="font">reviews: {{numberOfReviews}} <button ng-if="logged"><a href="#!/newReview/{{filmId}}">new review</a></button></span>
     </div>
     <table style="width:100%">
         <tr>
-            <th>name</th>
-            <th>analysis</th>
-            <th>avaliation</th>
+            <th class="font">name</th>
+            <th class="font">analysis</th>
+            <th class="font">avaliation</th>
         </tr>
         <tr align="center" ng-repeat="review in reviews">
-            <td>{{review.users.nickname}}</td>
-            <td>{{review.comment}}</td>
-            <td>{{review.avaliation}}</td>
+            <td class="font">{{review.users.nickname}}</td>
+            <td class="font">{{review.comment}}</td>
+            <td class="font">{{review.avaliation}}</td>
         </tr>
     </table>
 </body>

@@ -20,16 +20,16 @@
         <a href="#!/"><span id="title">filmorum</span></a>
         <span class="usercommands">Welcome, {{nicknameHeader}}</span>
         <span ng-if="logged" class="usercommands">
-            <button><a href="#!/new">new movie</a></button>
+            <button><a class="font" href="#!/new">new movie</a></button>
         </span>
         <span ng-if="!logged" class="usercommands">
-            <button><a href="#!/login">login</a></button>
+            <button><a class="font" href="#!/login">login</a></button>
         </span>
         <span ng-if="!logged" class="usercommands">
-            <button><a href="#!/signup">signup</a></button>
+            <button><a class="font" href="#!/signup">signup</a></button>
         </span>
         <span ng-if="logged" class="usercommands">
-            <button ng-click="logout()"><a>logout</a></button>
+            <button ng-click="logout()"><a class="font">logout</a></button>
         </span>
     </div>
     <div ng-view></div>
