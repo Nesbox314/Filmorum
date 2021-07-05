@@ -14,9 +14,6 @@ public class Film {
     private String name;
     private String description;
 
-    @OneToMany(mappedBy = "movie", targetEntity = Analysis.class, fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Analysis> analysis;
-
     public Film(){
 
     }
@@ -47,14 +44,6 @@ public class Film {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public List<Analysis> getAnalysis() {
-        return analysis;
-    }
-
-    public void setAnalysis(List<Analysis> analysis) {
-        this.analysis = analysis;
     }
 
     @Override

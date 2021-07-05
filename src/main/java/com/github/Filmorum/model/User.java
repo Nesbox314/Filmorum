@@ -1,6 +1,10 @@
 package com.github.Filmorum.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import javax.persistence.*;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -15,8 +19,6 @@ public class User {
     private String name;
     private String password;
     private int age;
-    @OneToOne(mappedBy = "users", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Analysis analysis;
 
     public User(){
 
@@ -72,14 +74,6 @@ public class User {
 
     public void setAge(int age) {
         this.age = age;
-    }
-
-    public Analysis getAnalysis() {
-        return analysis;
-    }
-
-    public void setAnalysis(Analysis analysis) {
-        this.analysis = analysis;
     }
 
     @Override

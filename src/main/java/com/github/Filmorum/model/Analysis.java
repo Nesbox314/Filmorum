@@ -10,13 +10,15 @@ public class Analysis {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @OneToOne
-    @JoinColumn(name = "userId")
-    private User users;
     private String comment;
     private int avaliation;
+
     @ManyToOne
+    @JoinColumn(name="user_id")
+    private User users;
+
+    @ManyToOne
+    @JoinColumn(name="movie_id")
     private Film movie;
 
     public Long getId() {
