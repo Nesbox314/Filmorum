@@ -64,9 +64,6 @@ public class UserController {
                         "nickname = '" + nickname + "'and password = '" + password + "'", User.class).getResultList();
 
         if(listUsers.size() != 0){
-            entityManager.getTransaction().begin();
-            entityManager.persist(listUsers.get(0));
-            entityManager.getTransaction().commit();
             return listUsers.get(0);
         } else {
             return null;

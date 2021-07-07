@@ -59,8 +59,6 @@ public class AnalysisController {
     }
 
     public double atualizarReview(Analysis ana){
-        entityManager.getTransaction().begin();
-
         List<Analysis> listAnalysis = entityManager
                 .createNativeQuery("select * from analysis where movie_id = " +
                         ana.getMovie().getId(), Analysis.class).getResultList();
@@ -76,7 +74,6 @@ public class AnalysisController {
         }
 
         DecimalFormat df = new DecimalFormat("#,0");
-        entityManager.getTransaction().commit();
         return Double.parseDouble(df.format(soma/listAnalysis.size()));
     }
 }

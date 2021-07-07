@@ -13,11 +13,11 @@ public class Analysis {
     private String comment;
     private double avaliation;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="user_id")
     private User users;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne
     @JoinColumn(name="movie_id")
     private Film movie;
 
