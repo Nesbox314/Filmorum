@@ -45,22 +45,27 @@ public class AnalysisController {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("/")
     public Response create(Analysis analysis){
-        entityManager.getTransaction().begin();
         Film film = entityManager.find(Film.class, analysis.getMovie().getId());
+
         film.setReviews(film.getReviews() + 1);
         film.setAvaliation(atualizarReview(analysis));
         analysis.setMovie(film);
+
+        entityManager.getTransaction().begin();
         entityManager.persist(analysis);
         entityManager.getTransaction().commit();
+
         return Response.status(Response.Status.OK).build();
     }
 
     public double atualizarReview(Analysis ana){
+        entityManager.getTransaction().begin();
+
         List<Analysis> listAnalysis = entityManager
                 .createNativeQuery("select * from analysis where movie_id = " +
                         ana.getMovie().getId(), Analysis.class).getResultList();
-        double soma = 0;
 
+        double soma = 0;
         if(listAnalysis.size() == 0){
             return ana.getAvaliation();
         }
@@ -71,6 +76,7 @@ public class AnalysisController {
         }
 
         DecimalFormat df = new DecimalFormat("#,0");
+        entityManager.getTransaction().commit();
         return Double.parseDouble(df.format(soma/listAnalysis.size()));
     }
 }

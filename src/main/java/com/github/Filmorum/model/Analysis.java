@@ -13,11 +13,11 @@ public class Analysis {
     private String comment;
     private double avaliation;
 
-    @ManyToOne(fetch = FetchType.LAZY /*, cascade = CascadeType.ALL*/)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="user_id")
     private User users;
 
-    @ManyToOne(fetch = FetchType.EAGER /*, cascade = CascadeType.ALL*/)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="movie_id")
     private Film movie;
 
