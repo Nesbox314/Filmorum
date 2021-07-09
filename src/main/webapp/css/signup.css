@@ -14,9 +14,14 @@ input {
 
 #principaldiv {
     margin-left: 40vw;
-    margin-top: 30vh;
+    margin-top: 20vh;
 }
 
 #labeldiv {
     font-size: 100vw;
+}
+
+.message{
+    font-family: Consolas;
+    color: red;
 }

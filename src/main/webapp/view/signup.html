@@ -6,27 +6,39 @@
     <link rel="stylesheet" type="text/css" href="css/signup.css">
 </head>
 <body>
-    <form>
+    <form name="signupForm">
         <div id="principaldiv">
             <div>
                 <h3 id="title">signup</h3>
             </div>
             <div>
-                <input type="text" placeholder="name" ng-model="film.name">
+                <input type="text" placeholder="name" name="name" ng-model="film.name" ng-required="true">
+            </div>
+            <div ng-show="signupForm.name.$invalid && signupForm.name.$dirty">
+                <p class="message">Por favor, preencha a nome!</p>
             </div>
             <div>
-                <input type="text" placeholder="nickname" ng-model="film.nickname">
+                <input type="text" placeholder="nickname" name="nickname" ng-model="film.nickname" ng-required="true">
+            </div>
+            <div ng-show="signupForm.nickname.$invalid && signupForm.nickname.$dirty">
+                <p class="message">Por favor, preencha o seu usuário!</p>
             </div>
             <div>
-                <input type="password" placeholder="password" ng-model="film.password">
+                <input type="password" placeholder="password" name="password" ng-model="film.password" ng-required="true">
+            </div>
+            <div ng-show="signupForm.password.$invalid && signupForm.password.$dirty">
+                <p class="message">Por favor, preencha a senha!</p>
             </div>
             <div>
-                <input type="text" placeholder="e-mail" ng-model="film.email">
+                <input type="text" placeholder="e-mail" name="email" ng-model="film.email" ng-required="true">
+            </div>
+            <div ng-show="signupForm.email.$invalid && signupForm.email.$dirty">
+                <p class="message">Por favor, preencha o e-mail!</p>
             </div>
             <div>
                 <input type="number" placeholder="years" ng-model="film.age">
             </div>
-            <button ng-click="newUser(film)">SUBMIT</button>
+            <button ng-click="newUser(film)" ng-disabled="signupForm.$invalid">SUBMIT</button>
         </div>
     </form>
 </body>
