@@ -8,6 +8,10 @@ input {
     width: 20vw;
 }
 
+#title {
+    font-family: Consolas;
+}
+
 #principaldiv {
     margin-left: 40vw;
     margin-top: 30vh;
