@@ -2,6 +2,10 @@ body {
     background-color: #e5e5e5;
 }
 
+#title {
+    font-family: Consolas;
+}
+
 input {
     margin-bottom: 5px;
     height: 40px;
@@ -15,4 +19,9 @@ input {
 
 #labeldiv {
     font-size: 100vw;
+}
+
+.message{
+    font-family: Consolas;
+    color: red;
 }

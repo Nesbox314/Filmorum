@@ -6,19 +6,25 @@
     <link rel="stylesheet" type="text/css" href="css/login.css">
 </head>
 <body>
-    <form>
+    <form name="loginForm">
         <div id="principaldiv">
             <div>
-                <h2>login</h2>
+                <h2 id="title">login</h2>
             </div>
             <div>
-                <input type="text" placeholder="nickname" ng-model="nickname">
+                <input type="text" placeholder="nickname" name="nickname" ng-model="nickname" ng-required="true">
             </div>
             <div>
-                <input type="password" placeholder="password" ng-model="password">
+                <input type="password" placeholder="password" name="password" ng-model="password" ng-required="true">
+            </div>
+            <div ng-show="loginForm.nickname.$invalid && loginForm.nickname.$dirty">
+                <p class="message">Por favor, preencha o login!</p>
+            </div>
+            <div ng-show="loginForm.password.$invalid && loginForm.password.$dirty">
+                <p class="message">Por favor, preencha a senha!</p>
             </div>
             <div id="divbutton">
-                <button ng-click="login(nickname, password)">SUBMIT</button>
+                <button ng-click="login(nickname, password)" ng-disabled="loginForm.$invalid">SUBMIT</button>
             </div>
         </div>
     </form>
