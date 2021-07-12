@@ -2,7 +2,7 @@ angular.module("filmorum").controller("userCtrl", function($scope, $http, $windo
     $scope.film = {};
     $scope.nicknameHeader = "guest";
     $scope.logged = false;
-    $scope.successCreated = false;
+    $scope.successCreated = true;
 
     let token = sessionStorage.getItem("token");
     if(token){
@@ -15,7 +15,7 @@ angular.module("filmorum").controller("userCtrl", function($scope, $http, $windo
         $http.get("http://localhost:8080/filmorum/api/user/validate/" + user.nickname + "/" + user.email)
             .then(function (response){
                 if(response.data.emailExists == true && response.data.nicknameExists == true){
-                    $scope.successCreated = true;
+                    $scope.successCreated = false;
                 } else {
                     $http.post("http://localhost:8080/filmorum/api/user", user).then(function (response){
                         if(response.status == 200){

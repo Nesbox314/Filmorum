@@ -39,6 +39,9 @@
                 <input type="number" placeholder="years" ng-model="film.age">
             </div>
             <button ng-click="newUser(film)" ng-disabled="signupForm.$invalid">SUBMIT</button>
+            <div ng-show="!successCreated">
+                <p class="message">Usuário já existente!</p>
+            </div>
         </div>
     </form>
 </body>

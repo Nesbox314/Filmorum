@@ -6,8 +6,8 @@ public class ValidateSignup {
     public Boolean emailExists;
 
     public ValidateSignup(){
-        nicknameExists = true;
-        emailExists = true;
+        nicknameExists = false;
+        emailExists = false;
     }
 
     public Boolean getNicknameExists() {
